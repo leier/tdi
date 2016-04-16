@@ -16,9 +16,7 @@ import csv
 
 def main(filename='past_sales_figures.csv',pprice=30,cprice=20,no_boot_strapping_realization=10000, verbose=False):
 
-  
   p,adb,number_of_stores=read_data(filename)
-
 
   pmeans=np.array([(mean(p[0][0])+mean(p[0][1]))/2.,mean(p[0][2]),(mean(p[0][3])+mean(p[0][4]))/2.,mean(p[0][5])])*pprice
   p01=np.concatenate([p[0][0],p[0][1]])
@@ -29,10 +27,7 @@ def main(filename='past_sales_figures.csv',pprice=30,cprice=20,no_boot_strapping
   c01=np.concatenate([p[1][0],p[1][1]])
   c23=np.concatenate([p[1][2],p[1][3]])
   cstds=np.array([std(c01),std(c23),std(p[1][4]),std(p[1][5])])*cprice
-
-
-
-  
+ 
   fig=plt.figure(1,figsize=(13, 4))
   plt.clf()
   plt.subplots_adjust(left=0.08, bottom=0.11, right=0.99, top=0.96, wspace=0.3, hspace=0.2)
@@ -238,7 +233,7 @@ def main(filename='past_sales_figures.csv',pprice=30,cprice=20,no_boot_strapping
         print "The max. profit / st. dev. are at ", adb_frac_at_max_rel_rev, " for random sampling (picking sales from diff. stores) "
     
     
-  savefig('of.png')
+  savefig('tdi.png')
   return
 
 
